@@ -23,9 +23,7 @@ class HomeViewController: UIViewController {
         //check auth status
         if Auth.auth().currentUser == nil {
             //show login screen
-            let loginVC = LoginViewController()
-            loginVC.modalPresentationStyle = .fullScreen
-            present(loginVC, animated: false)
+            performSegue(withIdentifier: "GoToLoginScreen", sender: self)
         }
     }
 }
