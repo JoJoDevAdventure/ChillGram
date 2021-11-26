@@ -29,6 +29,9 @@
 		A3723AB827514D40001955F8 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3723AB727514D40001955F8 /* SearchResultViewController.swift */; };
 		A3723ABA27514D61001955F8 /* PostEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3723AB927514D61001955F8 /* PostEditorViewController.swift */; };
 		A3723ABC27514D70001955F8 /* PublishPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3723ABB27514D70001955F8 /* PublishPostViewController.swift */; };
+		A3723ABF27515750001955F8 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3723ABE27515750001955F8 /* DatabaseManager.swift */; };
+		A3723AC127515868001955F8 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3723AC027515868001955F8 /* AuthManager.swift */; };
+		A3723AC327515918001955F8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3723AC227515918001955F8 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +60,9 @@
 		A3723AB727514D40001955F8 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		A3723AB927514D61001955F8 /* PostEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditorViewController.swift; sourceTree = "<group>"; };
 		A3723ABB27514D70001955F8 /* PublishPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishPostViewController.swift; sourceTree = "<group>"; };
+		A3723ABE27515750001955F8 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		A3723AC027515868001955F8 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		A3723AC227515918001955F8 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		C08A1A77CB85B97FF036B3DE /* Pods_ChillGram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChillGram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -141,6 +147,9 @@
 				A3723A832751413C001955F8 /* AppDelegate.swift */,
 				A3723A852751413C001955F8 /* SceneDelegate.swift */,
 				A3723A97275149C8001955F8 /* GoogleService-Info.plist */,
+				A3723ABE27515750001955F8 /* DatabaseManager.swift */,
+				A3723AC027515868001955F8 /* AuthManager.swift */,
+				A3723AC227515918001955F8 /* StorageManager.swift */,
 			);
 			path = Res;
 			sourceTree = "<group>";
@@ -170,14 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				A3723AA827514C9E001955F8 /* OnBoarding */,
-				A3723AAD27514CF7001955F8 /* PostViewController.swift */,
-				A3723AAF27514D0D001955F8 /* EditProileViewController.swift */,
-				A3723AB127514D1A001955F8 /* SettingViewController.swift */,
-				A3723AB327514D26001955F8 /* ListViewController.swift */,
-				A3723AB527514D30001955F8 /* SearchViewController.swift */,
-				A3723AB727514D40001955F8 /* SearchResultViewController.swift */,
-				A3723AB927514D61001955F8 /* PostEditorViewController.swift */,
-				A3723ABB27514D70001955F8 /* PublishPostViewController.swift */,
+				A3723ABD27515643001955F8 /* General */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -189,6 +191,21 @@
 				A3723AAB27514CC3001955F8 /* RegistrationViewController.swift */,
 			);
 			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		A3723ABD27515643001955F8 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				A3723AAD27514CF7001955F8 /* PostViewController.swift */,
+				A3723AAF27514D0D001955F8 /* EditProileViewController.swift */,
+				A3723AB127514D1A001955F8 /* SettingViewController.swift */,
+				A3723AB327514D26001955F8 /* ListViewController.swift */,
+				A3723AB527514D30001955F8 /* SearchViewController.swift */,
+				A3723AB727514D40001955F8 /* SearchResultViewController.swift */,
+				A3723AB927514D61001955F8 /* PostEditorViewController.swift */,
+				A3723ABB27514D70001955F8 /* PublishPostViewController.swift */,
+			);
+			path = General;
 			sourceTree = "<group>";
 		};
 		F3A05B559E5EF6397CD319A6 /* Pods */ = {
@@ -323,12 +340,15 @@
 				A3723AAC27514CC3001955F8 /* RegistrationViewController.swift in Sources */,
 				A3723AB027514D0D001955F8 /* EditProileViewController.swift in Sources */,
 				A3723ABA27514D61001955F8 /* PostEditorViewController.swift in Sources */,
+				A3723AC327515918001955F8 /* StorageManager.swift in Sources */,
 				A3723AAE27514CF7001955F8 /* PostViewController.swift in Sources */,
+				A3723ABF27515750001955F8 /* DatabaseManager.swift in Sources */,
 				A3723A882751413C001955F8 /* HomeViewController.swift in Sources */,
 				A3723AB827514D40001955F8 /* SearchResultViewController.swift in Sources */,
 				A3723AAA27514CB7001955F8 /* LoginViewController.swift in Sources */,
 				A3723AB627514D30001955F8 /* SearchViewController.swift in Sources */,
 				A3723AA527514C62001955F8 /* ProfileViewController.swift in Sources */,
+				A3723AC127515868001955F8 /* AuthManager.swift in Sources */,
 				A3723A842751413C001955F8 /* AppDelegate.swift in Sources */,
 				A3723A862751413C001955F8 /* SceneDelegate.swift in Sources */,
 				A3723AB427514D26001955F8 /* ListViewController.swift in Sources */,
