@@ -17,25 +17,47 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var LogInButton: UIButton!
     
+    //MARK: Actions
     
     override func viewDidLoad() {
         super.viewDidLoad()
         UISetup()
         setupTextFieldManager()
+        dismiss(animated: true)
     }
-    
-    //MARK: Actions
     
     @IBAction func didTapLoginButton(_ sender: Any) {
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
-        
-        guard let email = emailTextField.text, !email.isEmpty,
+        guard let emailUsername = emailTextField.text, !emailUsername.isEmpty,
               let password = passwordTextField.text, !password.isEmpty, password.count >= 8 else {
                   return
               }
         //login fonctionality
-    }
+        var username : String?
+        var email : String?
+        if emailUsername.contains("@"), emailUsername.contains(".") {
+            //email
+            email = emailUsername
+        } else {
+            //Username
+            username = emailUsername
+        }
+        
+        AuthManager.shared.loginUser(username: username, email: email, password: password) { success in
+            if success {
+
+                //user logged in
+                self.dismiss(animated: true, completion: nil)
+                }
+                else {
+                    // error
+                    let alert = UIAlertController(title: "LogIn error.", message: "we are unable to Log you into your account.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                    self.present(alert, animated: true)
+                }
+            }
+        }
     
     @IBAction func didTapTermsButton(_ sender: Any) {
         guard let url = URL(string: "https://help.instagram.com/581066165581870") else {
@@ -53,7 +75,6 @@ class LoginViewController: UIViewController {
         present(vc, animated: true)
     }
     
-    
     //MARK: private functions
     
     @objc func hideKeyBoard () {
@@ -69,7 +90,6 @@ class LoginViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
         view.addGestureRecognizer(tapGesture)
     }
-
     
     //function for UI Text Fields
     private func UISetup(){
@@ -88,10 +108,9 @@ class LoginViewController: UIViewController {
         
         LogInButton.layer.cornerRadius = 10
     }
-    
-        
-    
 }
+
+//MARK: Extensions
 
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -99,3 +118,4 @@ extension LoginViewController: UITextFieldDelegate {
         return true
     }
 }
+

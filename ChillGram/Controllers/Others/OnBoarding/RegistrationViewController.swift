@@ -16,15 +16,37 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var SignUpButton: UIButton!
+    @IBOutlet weak var registredLabel: UILabel!
+    
+    //MARK: actions
     
     override func viewDidLoad() {
         super.viewDidLoad()
         UISetup()
         setupTextFieldManager()
+        registredLabel.isHidden = true
     }
     
-    //MARK: actions
-    
+    @IBAction func didTapSignUpButton(_ sender: Any) {
+        usernameTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        
+        guard let email = emailTextField.text, !email.isEmpty,
+              let password = passwordTextField.text,!password.isEmpty, password.count >= 8,
+              let username = usernameTextField.text, !username.isEmpty else {
+                  return
+              }
+        AuthManager.shared.registerNewUser(username: username, email: email, password: password) { registred in
+            if registred {
+                self.dismiss(animated: true, completion: nil)
+                    }
+            else {
+                //problem
+            }
+        }
+    }
+
     //return to login view
     
     @IBAction func dismissRegister(_ sender: Any) {
@@ -91,8 +113,6 @@ class RegistrationViewController: UIViewController {
         
         SignUpButton.layer.cornerRadius = 10
     }
-    
-    
 }
 
 extension RegistrationViewController: UITextFieldDelegate {

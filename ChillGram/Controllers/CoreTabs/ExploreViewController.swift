@@ -5,25 +5,54 @@
 //  Created by Youssef Bhl on 26/11/2021.
 //
 
+///Explore View Controller
 import UIKit
 
 class ExploreViewController: UIViewController {
+    
+    //MARK: -UIs declaration
+    //search Bar
+    private let searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.backgroundColor = .secondarySystemBackground
+        return searchBar
+    }()
+    
+    //Context Collection view
+    private var collectionView: UICollectionView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        navigationController?.navigationBar.topItem?.titleView = searchBar
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.scrollDirection = .vertical
+        collectionView? = UICollectionView(frame: .zero, collectionViewLayout: layout )
+        collectionView?.delegate = self
+        collectionView?.dataSource = self
+        guard let collectionView = collectionView else {
+            return
+        }
+        view.addSubview(collectionView)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView?.frame = view.bounds
     }
-    */
+    
+}
+
+//MARK: -Extension
+extension ExploreViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return UICollectionViewCell()
+    }
 
 }
